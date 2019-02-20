@@ -1,0 +1,52 @@
+<div class="container-fluid tourists">
+  <div class="panel">
+    <h4 class="title">{{'COUNTRY.NEW' | translate}}</h4>
+
+    <form [formGroup]="countryForm" >
+
+      <div class="row form-background new-tourist__main">
+        <div class="col-12">
+
+
+          <div class="row tourists__main form-background">
+            <div class="col-12 col-sm-6 tourists__main__row">
+
+              <input-text [inputLabel]="'COUNTRY.NAME'" [inputName]="'name'"
+                          [labelNumber]="'col-12 col-sm-12 col-md-4 col-lg-4'"
+                          [group]="countryForm"
+                          [columnNumber]="'col-12 col-sm-12 col-md-8 col-lg-8'"
+                          [(inputModel)]="c.name" [submitted]="submitted"></input-text>
+
+            </div>
+          </div>
+          <div class="container">
+            <div class="row justify-content-center">
+              <button type="button" aria-label="Close" class="practice-btn practice-btn--primary" (click)="onSubmit()"
+                      *ngIf="this.isEdit" >
+                <i class="fa fa-check-circle fa-margin" aria-hidden="true"></i>{{'ACTIONS.SAVE' | translate}}
+              </button>
+              <button type="button" data-dismiss="modal" aria-label="Close" routerLink="/dashboard/tourists"
+                      *ngIf="isEdit"
+                      class="practice-btn practice-btn--white"><i class="fa fa-times-circle fa-margin"
+                                                                  aria-hidden="true"></i>
+                {{'ACTIONS.CANCEL' | translate}}
+              </button>
+              <button class="practice-btn practice-btn--primary" type="button" (click)="editExistingItem()"
+                      *ngIf="!isEdit">
+                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                {{'ACTIONS.EDIT' | translate}}
+              </button>
+              <button class="practice-btn practice-btn--white" type="button" routerLink="/dashboard/tourists"
+                      *ngIf="!isEdit">
+                <i class="fa fa-times-circle fa-margin" aria-hidden="true"></i>
+                {{'ACTIONS.BACK' | translate}}
+              </button>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+<div class="container-fluid flights">
+    <div class="panel">
+        <form [formGroup]="flightForm" (ngSubmit)="onSubmit()">
+            <h4 class="title">{{'FLIGHT.LIST'| translate}}</h4>
+            <div class="row tourists__main form-background">
+
+                <div class="col-12 col-sm-6 tourists__main__row">
+                  <div class="row new-tourist__main__date">
+                    <div class="col-4 new-tourist__main__date__label">
+                      <label>{{'FLIGHT.DEPARTURE_DATE'| translate}}:</label>
+                    </div>
+                    <div class="col-8 new-tourist__main__date__input">
+                      <ngbd-datepicker-popup
+                        [inputName]="'departureDate'"
+                        [group]="flightForm"
+                        [submitted]='submitted'
+                        [(inputModel)]="t.departureDate"></ngbd-datepicker-popup>
+                    </div>
+
+                  </div>
+
+
+
+                  <div class="row new-tourist__main__date">
+                    <div class="col-4 new-tourist__main__date__label">
+                      <label>{{'FLIGHT.ARRIVAL_DATE'| translate}}:</label>
+                    </div>
+                    <div class="col-8 new-tourist__main__date__input">
+                      <ngbd-datepicker-popup
+                        [inputName]="'arrivalDate'"
+                        [group]="flightForm"
+                        [submitted]='submitted'
+                        [(inputModel)]="t.arrivalDate">
+
+                      </ngbd-datepicker-popup>
+                  </div>
+                  </div>
+
+                  <dropdown [labelNumber]="'col-12 col-sm-12 col-md-4 col-lg-4'"
+                            [columnNumber]="'col-12 col-sm-12 col-md-6 col-lg-6'"
+                            [item]="country1" [group]="flightForm" [inputName]="'Lot z'"
+                            [(inputModel)]="t.country1" [submitted]='submitted'></dropdown>
+
+                  <dropdown [labelNumber]="'col-12 col-sm-12 col-md-4 col-lg-4'"
+                            [columnNumber]="'col-12 col-sm-12 col-md-6 col-lg-6'"
+                            [item]="country2" [group]="flightForm" [inputName]="'Lot do'"
+                            [(inputModel)]="t.country2" [submitted]='submitted'></dropdown>
+
+
+
+                    <input-text
+                      [inputLabel]="'FLIGHT.PRICE'"
+                      [inputName]="'price'"
+                      [labelNumber]="'col-12 col-sm-12 col-md-4 col-lg-4'"
+                      [group]="flightForm"
+                      [columnNumber]="'col-12 col-sm-12 col-md-6 col-lg-6'"
+                      [(inputModel)]="t.price"
+                      [submitted]='submitted'></input-text>
+                </div>
+
+
+                <div class="container tourists__main__buttons">
+                    <div class="row justify-content-center">
+                        <button class="practice-btn practice-btn--primary" type="submit">
+              <i class="fa fa-search fa-margin" aria-hidden="true"></i>{{'ACTIONS.SEARCH' | translate}}
+            </button>
+                        <button type="button" data-dismiss="modal" aria-label="Close" class="practice-btn practice-btn--white" (click)="clear()">
+              <i class="fa fa-times-circle fa-margin" aria-hidden="true"></i>{{'ACTIONS.CLEAR' | translate}}
+            </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="flightsList && flightsList.length > 0">
+                <div class="row header">
+                    <div class="col-2">{{'FLIGHT.DEPARTURE_DATE' | translate}}</div>
+                    <div class="col-2">{{'FLIGHT.ARRIVAL_DATE' | translate}}</div>
+                    <div class="col-1">{{'FLIGHT.SEATS' | translate}}</div>
+                    <div class="col-1">{{'FLIGHT.PRICE' | translate}}</div>
+                    <div class="col-2">{{'Lot z' | translate}}</div>
+                  <div class="col-2">{{'Lot do' | translate}}</div>
+                  <div class="col-2">{{'Turysci' | translate}}</div>
+
+                </div>
+                <div class="row data" *ngFor="let item of flightsList">
+                    <div class="col-2">{{item.departureDate}}</div>
+                    <div class="col-2">{{item.arrivalDate}}</div>
+                    <div class="col-1">{{item.seats}}</div>
+                    <div class="col-1">{{item.price}}</div>
+                    <div class="col-2">{{item.country1}}</div>
+                  <div class="col-2">{{item.country2}}</div>
+                  <div class="col-2">{{item.tourists}}</div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

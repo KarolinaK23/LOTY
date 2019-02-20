@@ -1,0 +1,27 @@
+@import "../../../../styles/variables";
+
+.input {
+  display: inline-block;
+  height: 1.5rem;
+  font-size: .9rem;
+  padding: 0 .3rem;
+  border-radius: 0;
+}
+
+input.form-control:focus {
+  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+}
+
+.label {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.color-red{
+  color: red;
+}
+
+.errorNotify {
+  margin-top: -1px;
+  margin-bottom: 4px;
+}

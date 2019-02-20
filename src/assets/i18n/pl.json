@@ -1,0 +1,36 @@
+{
+    "GLOBAL": {},
+    "TOURIST": {
+        "NEW": "Nowy turysta",
+        "FIRST_NAME": "Imię",
+        "LAST_NAME": "Nazwisko",
+        "SEX": "Płeć",
+        "DATE_OF_BIRTH": "Data urodzenia",
+        "COUNTRY": "Kraj",
+        "LIST": "Lista turystów",
+      "COUNTRY1": "Lot z:",
+      "COUNTRY2": "Lot do:"
+    },
+    "FLIGHT": {
+        "NEW": "Nowy lot",
+        "LIST": "Lista lotów",
+        "DEPARTURE_DATE": "Data odlotu",
+        "ARRIVAL_DATE": "Data przylotu",
+        "PRICE": "Cena",
+        "SEATS": "Ilość miejsc",
+      "DEPARTURE_TIME": "Godzina odlotu",
+      "ARRIVAL_TIME": "Godzina przylotu"
+    },
+    "ACTIONS": {
+        "SAVE": "Zapisz",
+        "CANCEL": "Anuluj",
+        "BACK": "Wróć",
+        "EDIT": "Edytuj",
+        "SEARCH": "Szukaj",
+        "CLEAR": "Wyczyść"
+    },
+  "COUNTRY": {
+    "NEW": "Nowy kraj",
+    "NAME": "Kraj"
+  }
+}

@@ -1,0 +1,252 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import '~ngx-toastr/toastr.css';
+@import '~ngx-toastr/toastr-bs4-alert';
+@import "./variables";
+
+$panel-border-radius: 4px;
+
+body {
+  position: relative;
+  height: 100%;
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.cursor {
+  cursor: pointer;
+}  
+
+.practice-btn {
+  padding: 0 0 3.5px 0 !important;
+  margin: 4px 4px;
+  min-width: 8rem;
+  border-radius: 0px;
+  border: 1px solid $primary;
+  line-height: 1.2;
+  overflow: hidden;
+
+  &--white {
+    color: $primary;
+    background-color: $white;
+  }
+  &--primary {
+    color: $white;
+    background-color: $primary;
+    &[disabled] {
+      background-color: $disabled-button;
+      color: $black;
+    }
+  }
+}
+
+.fa-margin {
+  margin-right: 0.3rem;
+  margin-left: 0.3rem;
+}
+
+.button-text-margin {
+  margin-right: 0.3rem;
+}
+
+.clear-padding {
+  padding: 0px !important;
+}
+
+@include media-breakpoint-between(xs, sm) {
+  .hide-on-small {
+    display: none;
+  }
+
+  .hide-on-big {
+  }
+}
+
+@include media-breakpoint-between (md, xl) {
+  .hide-on-small {
+  }
+
+  .hide-on-big {
+    display: none;
+  }
+}
+
+input {
+  bordr-radius: 0;
+  width: 95%;
+  height: 2rem;
+  border: 1px solid $input-border;
+  margin-top: 3px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  width: 14px;
+}
+
+textarea {
+  width: 95% !important;
+}
+
+.container-fluid-panel {
+  border: 1px solid $panel-border;
+  border-radius: $panel-border-radius;
+  padding-top: 20px;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+}
+
+.tooltip .tooltip-inner {
+  background-color: $light-icon;
+}
+
+.tooltip .arrow::before {
+  border-left-color: $light-icon;
+}
+
+.form-background {
+  margin: 2px 0px;
+  border: solid $border-gray;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: $gray;
+}
+
+//menu kontekstowe
+.ngx-contextmenu .dropdown-menu {
+  border: solid 1px $primary !important;
+  //background-color: $primary ;
+}
+
+.ngx-contextmenu a:hover {
+  //color:black;
+  //font-weight: bold;
+  background-color: $gray;
+}
+
+.title {
+  color: $primary;
+}
+
+//DATEPICKER
+
+.dp-calendar-nav-container {
+  //tlo calej belki
+  background: $primary;
+}
+
+.dp-nav-header {
+  //tlo labela
+  background: $primary;
+  color: $white;
+}
+
+div.dp-nav-header * {
+  //przejmuje style coloru z parenta. Bez tego nie dziala
+  color: inherit !important;
+}
+
+.dp-time-select-control-up {
+  background: none !important;
+  border: none !important;
+}
+
+.dp-time-select-control-down {
+  background: none !important;
+  border: none !important;
+}
+
+.dp-nav-header-btn {
+  background: none !important;
+  border: none !important;
+}
+
+.dp-calendar-nav-left {
+  background: none !important;
+  border: none !important;
+}
+
+.dp-calendar-nav-right {
+  background: none !important;
+  border: none !important;
+}
+
+.dp-calendar-day {
+  background: none !important;
+  border: none !important;
+}
+
+.dp-selected {
+  background: $primary !important;
+  color: $white;
+  border: none !important;
+}
+
+.dp-calendar-weekday {
+  border: none !important;
+}
+
+.dp-picker-input {
+  display: inline-block;
+  height: 1.5rem;
+  max-width: 150px;
+  font-size: .9rem;
+  padding: 0rem .3rem;
+  text-align: center;
+  border: 1px solid $input-border;
+}
+
+//form validation
+
+.is-invalid {
+  //background: $form-invalid;
+  border: 1px solid $form-invalid;
+}
+
+.is-valid {
+  //background: $form-invalid;
+  border: 1px solid $border-gray;
+}
+
+.invalid-feedback {
+  //display: none;
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+.datepicker {
+  white-space: nowrap;
+}
+
+.bg-primary {
+  background-color: $primary !important;
+  border: 0px !important;
+}
+
+.ngb-dp-weekday {
+  color: $primary !important;
+}
+
+.btn-small-primary {
+  width: 30px !important;
+  min-width: 30px !important;
+  background: $primary;
+  border: 1px solid $white;
+}
+
+.btn-small-white {
+  width: 30px !important;
+  min-width: 30px !important;
+  background: $white;
+  border: 1px solid $primary;
+}
+
+.fa-custom-white {
+  color: $white;
+  transform: translateY(1.5px);
+}
+
+.fa-custom-primary {
+  transform: translateY(1.5px);
+  color: $primary;
+}

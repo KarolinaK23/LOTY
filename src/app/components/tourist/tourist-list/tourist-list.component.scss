@@ -1,0 +1,29 @@
+@import "../../../../styles/variables";
+@import "../../../../styles/styles";
+
+.tourists {
+  &__main {
+    &__date__label {
+      text-align: right;
+    }
+    &__buttons {
+      margin-top: 10px;
+    }
+  }
+}
+
+.dropdown-menu.show {
+  display: block;
+  border: 1px solid $primary;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  top: -56px !important;
+}
+
+.dropdown-item {
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+  padding: 0rem 1.5rem;
+}
+

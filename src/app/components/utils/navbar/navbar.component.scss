@@ -1,0 +1,13 @@
+@import "../../../../styles/variables";
+
+.header{
+    &__navbar {
+      left: $asside-width;
+    }
+
+    &__link {
+      &:hover {
+        color: $secound-color-bg !important;
+      }
+    }
+}

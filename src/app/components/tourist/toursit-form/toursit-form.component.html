@@ -1,0 +1,84 @@
+<div class="container-fluid new-tourist">
+  <div class="panel">
+    <h4 class="title">{{'TOURIST.NEW' | translate}}</h4>
+    <form [formGroup]="touristForm" (ngSubmit)="onSubmit()">
+      <div class="row form-background new-tourist__main">
+        <div class="col-12">
+          <input-text [inputLabel]="'TOURIST.FIRST_NAME'" [inputName]="'firstName'"
+                      [labelNumber]="'col-12 col-sm-12 col-md-4 col-lg-4'" [group]="touristForm"
+                      [columnNumber]="'col-12 col-sm-12 col-md-6 col-lg-6'"
+                      [(inputModel)]="f.firstName"
+                      [submitted]='submitted'></input-text>
+
+          <input-text [inputLabel]="'TOURIST.LAST_NAME'" [inputName]="'lastName'"
+                      [labelNumber]="'col-12 col-sm-12 col-md-4 col-lg-4'" [group]="touristForm"
+                      [columnNumber]="'col-12 col-sm-12 col-md-6 col-lg-6'"
+                      [(inputModel)]="f.lastName"
+                      [submitted]='submitted'></input-text>
+
+
+          <dropdown [labelNumber]="'col-12 col-sm-12 col-md-4 col-lg-4'"
+                    [columnNumber]="'col-12 col-sm-12 col-md-6 col-lg-6'"
+                    [item]="sexs" [group]="touristForm" [inputName]="'sex'"
+                    [(inputModel)]="f.sex" [submitted]='submitted'></dropdown>
+
+          <dropdown [labelNumber]="'col-12 col-sm-12 col-md-4 col-lg-4'"
+                    [columnNumber]="'col-12 col-sm-12 col-md-6 col-lg-6'"
+                    [item]="countries" [group]="touristForm" [inputName]="'country'"
+                    [(inputModel)]="f.country" [submitted]='submitted'></dropdown>
+          <div>
+            <div class="row new-tourist__main__date">
+              <div class="col-4 new-tourist__main__date__label">
+                <label>{{'TOURIST.DATE_OF_BIRTH' | translate}}:</label>
+              </div>
+              <div class="col-8 new-tourist__main__date__input">
+                <ngbd-datepicker-popup [inputName]="'dateOfBirth'"
+                                       [group]="touristForm" [submitted]='submitted'
+                                       [(inputModel)]="f.dateOfBirth"></ngbd-datepicker-popup>
+              </div>
+            </div>
+          </div>
+
+
+
+         <!-- <multiselect [inputLabel]="'Lista lotów'"
+                       [searchLabel]="'Wyszukaj'"
+                       [labelNumber]="'col-12 col-sm-12 col-md-4 col-lg-4'"
+                       [columnNumber]="'col-12 col-sm-12 col-md-6 col-lg-6'"
+                       [inputName]="'dataList'"
+                       [submitted]="submitted"
+                       [propertyToDisplay]="'name'"
+                       [dataList]="dataList"
+                       [group]="touristForm"
+                       [isDisabled]="!isEdit"></multiselect> -->
+
+        </div>
+
+        <div class="container">
+          <div class="row justify-content-center">
+            <button type="submit" aria-label="Close" class="practice-btn practice-btn--primary"
+                    *ngIf="this.isEdit" [disabled]="isSubmittedButtonDisabled">
+              <i class="fa fa-check-circle fa-margin" aria-hidden="true"></i>{{'ACTIONS.SAVE' | translate}}
+            </button>
+            <button type="button" data-dismiss="modal" aria-label="Close" routerLink="/dashboard/tourists"
+                    *ngIf="isEdit"
+                    class="practice-btn practice-btn--white"><i class="fa fa-times-circle fa-margin"
+                                                                aria-hidden="true"></i>
+              {{'ACTIONS.CANCEL' | translate}}
+            </button>
+            <button class="practice-btn practice-btn--primary" type="button" (click)="editExistingItem()"
+                    *ngIf="!isEdit">
+              <i class="fa fa-check-circle" aria-hidden="true"></i>
+              {{'ACTIONS.EDIT' | translate}}
+            </button>
+            <button class="practice-btn practice-btn--white" type="button" routerLink="/dashboard/tourists"
+                    *ngIf="!isEdit">
+              <i class="fa fa-times-circle fa-margin" aria-hidden="true"></i>
+              {{'ACTIONS.BACK' | translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

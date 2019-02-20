@@ -1,0 +1,63 @@
+<div class="container-fluid tourists">
+  <div class="panel">
+    <form [formGroup]="touristForm" (ngSubmit)="onSubmit()">
+      <h4 class="title">{{'TOURIST.LIST' | translate}}</h4>
+      <div class="row tourists__main form-background">
+        <div class="col-12 col-sm-6 tourists__main__row">
+          <input-text [inputLabel]="'TOURIST.FIRST_NAME'" [inputName]="'firstName'"
+                      [labelNumber]="'col-12 col-sm-12 col-md-4 col-lg-4'" [group]="touristForm"
+                      [columnNumber]="'col-12 col-sm-12 col-md-8 col-lg-8'"
+                      [(inputModel)]="f.firstName" [submitted]='submitted'></input-text>
+          <input-text [inputLabel]="'TOURIST.LAST_NAME'" [inputName]="'lastName'"
+                      [labelNumber]="'col-12 col-sm-12 col-md-4 col-lg-4'" [group]="touristForm"
+                      [columnNumber]="'col-12 col-sm-12 col-md-8 col-lg-8'"
+                      [(inputModel)]="f.lastName" [submitted]='submitted'></input-text>
+          <dropdown [labelNumber]="'col-12 col-sm-12 col-md-4 col-lg-4'"
+                    [columnNumber]="'col-12 col-sm-12 col-md-8 col-lg-8'"
+                    [item]="sexs" [group]="touristForm" [inputName]="'sex'" [(inputModel)]="f.sex"
+                    [submitted]='submitted'></dropdown>
+          <dropdown [labelNumber]="'col-12 col-sm-12 col-md-4 col-lg-4'"
+                    [columnNumber]="'col-12 col-sm-12 col-md-8 col-lg-8'"
+                    [item]="countries" [group]="touristForm" [inputName]="'country'" [(inputModel)]="f.country"
+                    [submitted]='submitted'></dropdown>
+        </div>
+
+
+        <div class="container tourists__main__buttons">
+          <div class="row justify-content-center">
+            <button class="practice-btn practice-btn--primary" type="submit">
+              <i class="fa fa-search fa-margin" aria-hidden="true"></i>{{'ACTIONS.SEARCH' | translate}}
+            </button>
+            <button type="button" data-dismiss="modal" aria-label="Close" class="practice-btn practice-btn--white"
+                    (click)="clear()">
+              <i class="fa fa-times-circle fa-margin" aria-hidden="true"></i>{{'ACTIONS.CLEAR' | translate}}
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="touristsList && touristsList.length > 0">
+          <div class="row header">
+            <div class="col-2">{{'TOURIST.FIRST_NAME' | translate}}</div>
+            <div class="col-2">{{'TOURIST.LAST_NAME' | translate}}</div>
+            <div class="col-2">{{'TOURIST.SEX' | translate}}</div>
+            <!--    <div class="col-2">{{'TOURIST.COUNTRY' | translate}}</div> -->
+                <div class="col-2">{{'TOURIST.DATE_OF_BIRTH' | translate}}</div>
+                <div class="col-2">{{'Loty' | translate}}</div>
+              </div>
+
+
+              <div class="row data" *ngFor="let item of touristsList" >
+                <div class="col-2">{{item.firstName}}</div>
+                <div class="col-2">{{item.lastName}}</div>
+                <div class="col-2">{{item.sex}}</div>
+              <!--  <div class="col-2">{{item.country}}</div> -->
+            <div class="col-2">{{item.dateOfBirth}}</div>
+            <div class="col-2">{{item.flights}}</div>
+          </div>
+      </div>
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="row dropdown" *ngIf="item" [formGroup]="group">
+  <div [ngClass]="labelNumber">
+    <label class="label" [ngClass]="labelFloat">
+      {{item.type | translate}}:
+    </label>
+  </div>
+  <div [ngClass]="columnNumber">
+    <select [ngClass]="blocked ? 'blocked': ''"
+            class="select" #selected
+            (change)="onChange(enterValue)"
+            [(ngModel)]="enterValue.value" formControlName="{{inputName}}"
+    [ngClass]="submitted && enterValue.errors ? 'is-invalid_loc':  ''">
+      <option></option>
+      <option [value]="c.id" [selected]="c.selected" *ngFor="let c of item.attributes">
+        {{c.name}}
+      </option>
+    </select>
+    <div *ngIf="submitted && enterValue.errors" class="invalid-feedback_loc errorNotify">
+      <div *ngIf="enterValue.errors.required">Fill field: {{item.type | translate}}</div>
+    </div>
+
+  </div>
+</div>

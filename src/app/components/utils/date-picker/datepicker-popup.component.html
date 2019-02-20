@@ -1,0 +1,20 @@
+<div class="datepicker" [formGroup]="group">
+    <label class="datepicker__label" *ngIf="name != ''">{{name}}
+
+  </label>
+    <input class="datepicker__input form-control"
+           placeholder="dd-mm-yyyy hh:mm:ss" name="dp"
+           [(ngModel)]="enterValue.value"
+           (ngModelChange)="onDateChange()"
+           (input)="onDateChange()"
+           ngbDatepicker formControlName="{{inputName}}" #d="ngbDatepicker"
+           [ngClass]="submitted && enterValue.errors ? 'is-invalid':  ''"
+        [disabled]="disabled">
+    <button class="btn-outline-secondary datepicker__button"
+            (click)="d.toggle(); clearDatePicker()" type="button" [disabled]="disabled">
+    <i class="fa fa-calendar datepicker__icon" aria-hidden="true"></i>
+  </button>
+    <div *ngIf="submitted && enterValue.errors && !disabled" class="invalid-feedback errorNotify date-picker-error-message">
+        <div *ngIf="enterValue.errors.required">Wypełnij pole daty</div>
+    </div>
+</div>

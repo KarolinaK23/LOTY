@@ -1,0 +1,46 @@
+@import "../../../../styles/variables";
+
+.aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: $asside-width;
+  background: $base-color-bg;
+  color: #fff;
+  & __nav {
+  }
+
+  &__menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    & -link {
+      color: rgba(#fff, .8);
+
+      &:hover {
+        text-decoration: none;
+        color: rgba(#fff, 1);
+      }
+      &--active {
+        color: rgba(#fff, 1);
+      }
+    }
+    &-item {
+      color: rgba(#fff, .8);
+      cursor: pointer;
+      text-align: center;
+      font-size: .8rem;
+      padding: .5rem;
+
+      &--active {
+        background-color: #000038;
+        border-left: 2px solid $secound-color-bg;
+      }
+    }
+    &-icon {
+      font-size: 1.75rem;
+      display: block;
+    }
+  }
+}

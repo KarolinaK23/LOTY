@@ -1,0 +1,128 @@
+<div class="container-fluid new-flight">
+    <div class="panel">
+        <h4 class="title">{{'FLIGHT.NEW' | translate}}</h4>
+        <form [formGroup]="flightForm" (ngSubmit)="onSubmit()">
+            <div class="row form-background new-tourist__main">
+                <div class="col-12">
+
+
+                    <div class="row new-tourist__main__date">
+                        <div class="col-4 new-tourist__main__date__label">
+                            <label>{{'FLIGHT.DEPARTURE_DATE'| translate}}:</label>
+                        </div>
+                        <div class="col-8 new-tourist__main__date__input">
+                            <ngbd-datepicker-popup
+                              [inputName]="'departureDate'"
+                              [group]="flightForm"
+                              [submitted]='submitted'
+                              [(inputModel)]="t.departureDate">
+
+                            </ngbd-datepicker-popup>
+                        </div>
+                    </div>
+
+
+
+                  <div>
+                    <div class="row new-tourist__main__date">
+                      <div class="col-4 new-tourist__main__date__label">
+                        <label>{{'FLIGHT.ARRIVAL_DATE' | translate}}:</label>
+                      </div>
+                      <div class="col-8 new-tourist__main__date__input">
+                        <ngbd-datepicker-popup
+                          [inputName]="'arrivalDate'"
+                          [group]="flightForm"
+                          [submitted]='submitted'
+                          [(inputModel)]="t.arrivalDate"></ngbd-datepicker-popup>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                  <dropdown [labelNumber]="'col-12 col-sm-12 col-md-4 col-lg-4'"
+                            [columnNumber]="'col-12 col-sm-12 col-md-6 col-lg-6'"
+                            [item]="country1" [group]="flightForm" [inputName]="'country1'"
+                            [(inputModel)]="t.country1" [submitted]='submitted'></dropdown>
+
+                  <dropdown [labelNumber]="'col-12 col-sm-12 col-md-4 col-lg-4'"
+                            [columnNumber]="'col-12 col-sm-12 col-md-6 col-lg-6'"
+                            [item]="country2" [group]="flightForm" [inputName]="'country2'"
+                            [(inputModel)]="t.country2" [submitted]='submitted'></dropdown>
+
+
+
+
+
+
+
+
+
+                  <input-text [inputLabel]="'FLIGHT.SEATS'"
+                                [inputName]="'seats'"
+                                [labelNumber]="'col-12 col-sm-12 col-md-4 col-lg-4'"
+                                [group]="flightForm"
+                                [columnNumber]="'col-12 col-sm-12 col-md-8 col-lg-8'"
+                                [(inputModel)]="t.seats"
+                                [submitted]='submitted'>
+
+                    </input-text>
+                    <input-text [inputLabel]="'FLIGHT.PRICE'"
+                                [inputName]="'price'"
+                                [labelNumber]="'col-12 col-sm-12 col-md-4 col-lg-4'"
+                                [group]="flightForm"
+                                [columnNumber]="'col-12 col-sm-12 col-md-8 col-lg-8'"
+                                [(inputModel)]="t.price"
+                                [submitted]='submitted'>
+
+                    </input-text>
+
+
+
+
+
+
+                    <multiselect [inputLabel]="'Lista turystów'"
+                                 [searchLabel]="'Wyszukaj'"
+                                 [labelNumber]="'col-12 col-sm-12 col-md-4 col-lg-4'"
+                                 [columnNumber]="'col-12 col-sm-12 col-md-6 col-lg-6'"
+                                 [inputName]="'dataList'"
+                                 [submitted]="submitted"
+                                 [propertyToDisplay]="'name'"
+                                 [dataList]="dataList"
+                                 [group]="flightForm"
+                                 [isDisabled]="!isEdit">
+
+                    </multiselect>
+
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <button type="submit" aria-label="Close"
+                                class="practice-btn practice-btn--primary"
+                                *ngIf="this.isEdit" [disabled]="isSubmittedButtonDisabled">
+              <i class="fa fa-check-circle fa-margin" aria-hidden="true"></i>
+                          {{'ACTIONS.SAVE' | translate}}
+            </button>
+                        <button type="button" data-dismiss="modal"
+                                aria-label="Close" routerLink="/dashboard/tourists"
+                                *ngIf="isEdit" class="practice-btn practice-btn--white">
+                          <i class="fa fa-times-circle fa-margin" aria-hidden="true"></i>
+              {{'ACTIONS.CANCEL' | translate}}
+            </button>
+                        <button class="practice-btn practice-btn--primary" type="button"
+                                (click)="editExistingItem()" *ngIf="!isEdit">
+              <i class="fa fa-check-circle" aria-hidden="true"></i>
+              {{'ACTIONS.EDIT' | translate}}
+            </button>
+                        <button class="practice-btn practice-btn--white" type="button"
+                                routerLink="/dashboard/tourists" *ngIf="!isEdit">
+              <i class="fa fa-times-circle fa-margin" aria-hidden="true"></i>
+              {{'ACTIONS.BACK' | translate}}
+            </button>
+                    </div>
+                 </div>
+              </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+@import "../../../../styles/variables";
+
+button {
+  background: none !important;
+  border: none !important;
+}
+
+input.datepicker__input:focus {
+  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+}
+
+.datepicker {
+  display: inline-block;
+
+  &__label {
+    margin-right: .5rem;
+  }
+
+  &__input {
+    display: inline-block;
+    height: 1.5rem;
+    font-size: .9rem;
+    padding: 0 .3rem;
+    width: 80%;
+    border-radius: 0;
+    margin-left: 5px;
+  }
+
+  &__button {
+    border: 0 solid transparent;
+    white-space: nowrap;
+  }
+
+  &__button:hover {
+    background-color: transparent;
+    border: none;
+  }
+
+  &__button:active {
+    background-color: transparent;
+    border: 0 solid transparent;
+  }
+
+  &__button:focus {
+    background-color: transparent;
+    border: 0 solid transparent;
+    box-shadow: none;
+    outline: 0;
+  }
+
+  &__button:visited {
+    background-color: transparent;
+    border: 0 solid transparent;
+  }
+
+  &__icon {
+    color: $primary;
+  }
+
+  &__icon:hover {
+    color: red;
+    background-color: transparent;
+  }
+}
+
+[data-hidden="true"] {
+  display: none !important;
+}
+
+.date-picker-error-message {
+  margin-left: 23px;
+}
+
+

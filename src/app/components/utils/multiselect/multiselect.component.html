@@ -1,0 +1,30 @@
+<div class="multiselect" [formGroup]="group">
+  <div class="row">
+    <div [ngClass]="labelNumber">
+      <label class="label" [ngClass]="labelFloat">
+        {{searchLabel | translate}}:
+      </label>
+    </div>
+    <div [ngClass]="columnNumber">
+      <input class="input form-control" (input)="onSearchChange($event.target.value)" [disabled]="isDisabled"/>
+    </div>
+  </div>
+  <div class="row multiSelect__row">
+    <div [ngClass]="labelNumber">
+      <label class="label multiSelect__row__label" [ngClass]="labelFloat">
+        {{inputLabel | translate}}:
+      </label>
+    </div>
+    <fieldset class="multiSelect__row__list" [ngClass]="columnNumber" [disabled]="isDisabled">
+      <div formArrayName="dataList"
+           *ngFor="let dataItem of group.controls.dataList.controls | multiselectFilter :searchValue; let i = index">
+        <label class="checkbox" [formGroupName]="i">
+          <input class="checkbox__input" type="checkbox" [checked]="dataItem.value ? dataItem.value.checked : false"
+                 (change)="onCheckChange($event, dataItem.value)">
+          <span class='checkbox__span'></span>
+        </label>
+        <span class="multiSelect__row__list__span">{{dataItem.value.name}}</span>
+      </div>
+    </fieldset>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<aside class="aside shadow-sm">
+    <nav class="aside__nav">
+        <ul class="aside__menu">
+            <ng-template ngFor let-item [ngForOf]="menu">
+                <li class="aside__menu-item" *ngIf="item.url"
+                    [routerLinkActive]="['aside__menu-item--active']"
+                    [routerLinkActiveOptions]="{exact:true}">
+                    <a class="aside__menu-link"
+                       [routerLink]="item.url"
+                       [routerLinkActive]="['aside__menu-link--active']"
+                       [routerLinkActiveOptions]="{exact:true}">
+
+                        <i *ngIf="item.icon" class="aside__menu-icon" [ngClass]="item.icon"></i> {{item.name}}
+                    </a>
+                </li>
+
+                <li class="aside__menu-item" *ngIf="!item.url && !item.href">
+                    <i *ngIf="item.icon" class="aside__menu-icon" [ngClass]="item.icon"></i> {{item.name}}
+                </li>
+
+                <li class="aside__menu-item" *ngIf="!item.url && item.href">
+                    <a class="aside__menu-link" href="{{item.href}}" target="{{ item.target || '_self' }}">
+                        <i *ngIf="item.icon" class="aside__menu-icon" [ngClass]="item.icon"></i> {{item.name}}
+                    </a>
+                </li>
+
+            </ng-template>
+        </ul>
+    </nav>
+</aside>

@@ -1,0 +1,18 @@
+<div class="row " [formGroup]="group">
+  <div [ngClass]="labelNumber">
+    <label class="label" [ngClass]="labelFloat">
+      {{inputLabel | translate}}:
+    </label>
+  </div>
+  <div [ngClass]="columnNumber">
+    <input class="input form-control" placeholder="{{placeholder}}"
+           type="{{type}}" pattern="{{pattern}}" [(ngModel)]="enterValue.value"
+           (input)="onChange()" maxlength="{{maxLength}}" formControlName="{{inputName}}"
+           [ngClass]="submitted && enterValue.errors ? 'is-invalid':  ''"/>
+    <div *ngIf="submitted && enterValue.errors" class="invalid-feedback errorNotify">
+      <div *ngIf="enterValue.errors.required">Wypełnij pole: {{inputLabel | translate}}</div>
+      <div *ngIf="enterValue.errors.email">Wprowadż poprawny format email</div>
+      <div *ngIf="enterValue.errors.minlength">Wprowadż poprawny format phone</div>
+    </div>
+  </div>
+</div>
